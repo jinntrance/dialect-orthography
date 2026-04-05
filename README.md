@@ -3,41 +3,37 @@
 
 ## ⚠️ 生僻字字体安装说明
 
-本仓库收录大量方言专用字（如𰍧、𫽞、𲚏、𡎚、𤆵等）及古汉语本字，部分字符位于 Unicode 扩展区 B～F 区，普通系统字体无法显示。**请务必安装以下字体**，否则文档中大量方言字将显示为方块或问号：
+本仓库收录大量方言专用字（如𰍧、𫽞、𲚏、𡎚、𤆵、𱟛、𬡊等）及古汉语本字，部分字符位于 Unicode 扩展区 B～F 区，普通系统字体无法显示。**请务必安装以下字体**：
 
-### 字体一：文津宋体（推荐）
-- **来源**：国家图书馆数字资源，免费商用
-- **下载地址**：[https://readbook.files.wordpress.com/2012/09/wenjin.pdf](https://readbook.files.wordpress.com/2012/09/wenjin.pdf)（PDF版）；或搜索"文津宋体 下载"获取 TTF 安装包
-- **覆盖**：支持 Unicode 扩展区 B～F 绝大多数汉字，含本库所有方言字
-- **安装方法**：下载 .ttf 文件后双击安装（macOS/Windows通用）；Linux 用户将文件放入 `~/.fonts/` 目录后执行 `fc-cache -fv`
+---
 
-### 字体二：偏黑体（Source Han Sans / Noto Sans CJK SC）
-- **来源**：Adobe + Google 联合开源，永久免费商用
-- **下载地址**：
-  - GitHub（完整版，约130MB）：[Noto Sans CJK SC](https://github.com/googlefonts/noto-cjk/releases)
-  - 国内镜像：[https://www.downcc.com/font/12343.html](https://www.downcc.com/font/12343.html)
-- **覆盖**：支持 Unicode 扩展区所有中日韩汉字，本库方言字全覆盖
-- **安装方法**：下载后解压 .otf 或 .ttf 文件双击安装
+### 字体一：文津宋体（推荐 · 适配阅读场景）
+| 项目 | 说明 |
+|------|------|
+| **来源** | [takushun-wu/WenJinMincho](https://github.com/takushun-wu/WenJinMincho)，基于思源宋体 + Kage 引擎二次开发 |
+| **授权** | SIL Open Font License 1.1（OFL），免费商用，可自由修改、分发 |
+| **Unicode 覆盖** | 扩展 B～F 区全覆盖，支持国标字形、IVD 异体字 |
+| **版本说明** | 标准版 OTF（macOS/Linux 推荐）/ 标准版 TTF（Windows 推荐）/ 缩窄间距版 / Windows GDI 兼容版 |
+| **最新版本** | v1.010（2025年4月3日发布）|
+| **macOS 安装** | `cp ~/Downloads/WenJinMincho*.ttf ~/Library/Fonts/` |
+| **Windows 安装** | 下载 .ttf 文件 → 右键"为所有用户安装" |
 
-### macOS 系统级安装（推荐）
-```bash
-# 方法1：复制到用户字体目录（推荐）
-cp ~/Downloads/NotoSansCJKsc-Regular.otf ~/Library/Fonts/
-cp ~/Downloads/WenJinSong.ttf ~/Library/Fonts/
+> ⚠️ 自2026年2月16日起，缩窄间距版（C版）和 Windows GDI 兼容版（W版）已停止更新，请使用标准版
 
-# 方法2：系统字体目录（需sudo）
-sudo cp ~/Downloads/*.ttf /Library/Fonts/
+---
 
-# 验证安装成功
-open -a "Font Book"
-```
+### 字体二：遍黑体（Plangothic Project · 适配代码/标注场景）
+| 项目 | 说明 |
+|------|------|
+| **来源** | [Fitzgerald-Porthmouth-Koenigsegg/Plangothic_Project](https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Plangothic_Project)，基于思源黑体 + 大陆字形标准，补充扩展 B～J 区汉字 |
+| **授权** | SIL Open Font License 1.1（OFL），免费商用，可自由修改、分发 |
+| **Unicode 覆盖** | 扩展 B～J 区全部汉字（主覆盖），其他区块零星收录 |
+| **最新版本** | V2.9.5792（2026年1月1日发布）|
+| **下载格式** | Super（含全部格式）/ Static（P1+P2 TTF+TTC）/ OTF / Web（WOFF2）/ 单独 TTF |
+| **macOS 安装** | 下载 .ttf 或 .otc 文件 → 双击安装，或 `cp ~/Downloads/Plangothic*.ttf ~/Library/Fonts/` |
+| **Windows 安装** | 下载 .ttf 文件 → 右键"为所有用户安装"，可选运行 `registry/Plangothic-Install.reg` 配置全局 Fallback |
 
-### Windows 系统安装
-1. 下载 .ttf / .otf 文件
-2. 右键 → "为所有用户安装"（需管理员权限）
-3. 或直接将文件放入 `C:\Windows\Fonts\` 目录
-
-> 💡 **提示**：安装后需重启浏览器/编辑器（如 VS Code）才能正确显示所有方言字。建议同时安装文津宋体和偏黑体，前者宋体适合阅读，后者黑体适合代码/标注场景。
+> 💡 **提示**：两套字体建议同时安装——文津宋体（.otf）负责阅读显示，遍黑体（.ttf）负责 VS Code / 终端等场景正确渲染方言字。安装后需重启编辑器使字体生效。
 
 ---
 
@@ -50,7 +46,7 @@ open -a "Font Book"
 
 | 方言片区 | 覆盖区域 | 正字表 | 常用词 | 校验来源 |
 |---------|---------|--------|--------|----------|
-| 西南官话·成渝片 | 四川、重庆90%区域 | ✅ 100+方言专用字 | ✅ 50+高频词汇 | 维基百科《四川方言字》+《四川方言词典》1987版+《成都方言音系》+《重庆方言词解》1996版 |
+| 西南官话·成渝片 | 四川、重庆90%区域 | ✅ 100+方言专用字 | ✅ 50+高频词汇 | 维基百科《四川方言字》+《四川方言词典》1987版+《重庆方言词解》1996版+汉典 zdic.net 逐字校验 |
 | 粤语·广府片 | 广州、佛山、香港、澳门 | ✅ 100+字 | ✅ 60+词 | 《广州话正音字典》2002版+香港中文大学《粤语审音配词字库》 |
 
 ## 🔄 计划中
@@ -60,7 +56,7 @@ open -a "Font Book"
 - [ ] 湘语·长益片（长沙、益阳、湘潭）
 - [ ] 赣语·昌都片（南昌、景德镇）
 - [ ] 江淮官话·洪巢片（南京、合肥、扬州）
-- [ ] 晋语区（太原、大同等）
+- [ ] 晋语区（太原，大同等）
 - [ ] 徽语区（黄山、绩溪等）
 
 ## 📍 标注规范
@@ -73,7 +69,7 @@ open -a "Font Book"
 4. **例词**：选取日常高频使用表达
 
 ## 🤝 贡献
-欢迎提交PR补充其他方言内容，提交前请注明校验的权威来源（如XX方言词典、XX高校方言研究报告等）。
+欢迎提交 PR 补充其他方言内容，提交前请注明校验的权威来源（如 XX 方言词典、zdic.net 逐字校验记录等）。
 
 ## 📄 许可证
 本仓库内容采用 CC BY-SA 4.0 许可证，可自由使用、修改、分发，需注明来源。
